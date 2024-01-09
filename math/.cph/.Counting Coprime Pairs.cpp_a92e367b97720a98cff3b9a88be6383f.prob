@@ -1,0 +1,1 @@
+{"name":"Local: Counting Coprime Pairs","url":"c:\\Users\\88697\\Desktop\\CSES\\math\\Counting Coprime Pairs.cpp","tests":[{"id":1701678026789,"input":"8\n5 4 20 1 16 17 5 15","output":"19"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\math\\Counting Coprime Pairs.cpp","group":"local","local":true}

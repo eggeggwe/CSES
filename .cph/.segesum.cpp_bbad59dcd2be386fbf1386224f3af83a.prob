@@ -1,0 +1,1 @@
+{"name":"Local: segesum","url":"c:\\Users\\88697\\Desktop\\C++\\segesum.cpp","tests":[{"id":1690402042291,"input":"8 4\n3 2 4 5 1 1 5 3\n2 1 4\n2 5 6\n1 3 1\n2 1 4","output":"14\n2\n11"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\C++\\segesum.cpp","group":"local","local":true}

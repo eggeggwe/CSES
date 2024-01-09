@@ -1,0 +1,1 @@
+{"name":"Local: Polynomial Queries","url":"c:\\Users\\88697\\Desktop\\CSES\\Range Queries\\Polynomial Queries.cpp","tests":[{"id":1691903080836,"input":"5 3\n4 2 3 1 7\n2 1 5\n1 1 5\n2 1 5","output":"17\n32"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\Range Queries\\Polynomial Queries.cpp","group":"local","local":true}

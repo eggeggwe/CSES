@@ -1,0 +1,1 @@
+{"name":"Local: Nim Game II","url":"c:\\Users\\88697\\Desktop\\CSES\\math\\Nim Game II.cpp","tests":[{"id":1702307848295,"input":"3\n4\n5 7 2 5\n2\n4 1\n3\n4 4 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\math\\Nim Game II.cpp","group":"local","local":true}

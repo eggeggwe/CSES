@@ -1,0 +1,1 @@
+{"name":"Local: Shortest Routes I","url":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Shortest Routes I.cpp","tests":[{"id":1696055967128,"input":"3 4\n1 2 6\n1 3 2\n3 2 3\n1 3 4","output":"0 5 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Shortest Routes I.cpp","group":"local","local":true}

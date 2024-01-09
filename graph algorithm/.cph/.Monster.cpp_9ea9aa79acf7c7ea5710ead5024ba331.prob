@@ -1,0 +1,1 @@
+{"name":"Local: Monster","url":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Monster.cpp","tests":[{"id":1695924792468,"input":"5 8\n########\n#M..A..#\n#.#.M#.#\n#M#..#..\n#.######","output":"YES\n5\nRRDDR"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Monster.cpp","group":"local","local":true}
