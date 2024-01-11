@@ -1,61 +1,50 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-int num[200010];
-vector<int> graph[200010];
-map<int,bool> visited[200010];
-int answer[200010];
-int n,m;
-bool finished=false;
-void dfs(int a,int deep){
-    num[a]--;
-    if(num[1]==0 && deep!=m+1){
-        num[a]++;
-        return;
-    }
-    if(deep!=m+1)answer[deep]=a;
-    else if(a==1){
-        answer[deep]=1;
-        finished=true;
-    }
-    for(int i=0;i<graph[a].size();i++){
-        if(visited[a][graph[a][i]] || visited[graph[a][i]][a])continue;
-        visited[a][graph[a][i]]=true;
-        visited[graph[a][i]][a]=true;
-        dfs(graph[a][i],deep+1);
-        if(finished)break;
-        visited[a][graph[a][i]]=false;
-        visited[graph[a][i]][a]=false;
-    }
-    num[a]++;
-    return;
-}
-int main(){
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+vector<pair<int,int> > graph[100010];
+bitset<200010> visited;
+int main() {
+    ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
+    int n,m;
     cin>>n>>m;
+    visited.reset();
     for(int i=0;i<m;i++){
         int a,b;
         cin>>a>>b;
-        num[a]++;
-        num[b]++;
-        graph[a].push_back(b);
-        graph[b].push_back(a);
-        visited[a][b]=false;
-        visited[b][a]=false;
+        graph[a].push_back(make_pair(b,i));
+        graph[b].push_back(make_pair(a,i));
     }
-    bool door=true;
-    for(int i=0;i<=n;i++){
-        if(num[i]%2==1)door=false;
-    }
-    if(door){
-        dfs(1,1);
-        if(answer[m+1]==0){
+    for(int i=1;i<=n;i++){
+        if(graph[i].size()%2==1){
             cout<<"IMPOSSIBLE";
-        }else{
-            for(int i=1;i<=m+1;i++){
-                if(i-1)cout<<" ";
-                cout<<answer[i];
+            return 0;
+        }
+    }
+    stack<int> q;
+    q.push(1);
+    vector<int> answer;
+    while(!q.empty()){
+        int now=q.top();
+        bool End=1;
+        while(!graph[now].empty()){
+            int next,id;
+            tie(next,id)=graph[now].back();
+            graph[now].pop_back();
+            if(!visited[id]){
+                q.push(next);
+                End=0;
+                visited[id]=1;
+                break;
             }
+        }
+        if(End){
+            answer.push_back(q.top());
+            q.pop();
+        }
+    }
+    if(answer.size()==m+1){
+        for(int i=0;i<answer.size();i++){
+            if(i)cout<<" ";
+            cout<<answer[i];
         }
     }else{
         cout<<"IMPOSSIBLE";
