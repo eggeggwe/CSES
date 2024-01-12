@@ -1,0 +1,1 @@
+{"name":"Local: Hamiltonian Flights","url":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Hamiltonian Flights.cpp","tests":[{"id":1705030516964,"input":"4 6\n1 2\n1 3\n2 3\n3 2\n2 4\n3 4","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Hamiltonian Flights.cpp","group":"local","local":true}
