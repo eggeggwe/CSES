@@ -1,0 +1,1 @@
+{"name":"Local: Police Chase","url":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Police Chase.cpp","tests":[{"id":1706382757237,"input":"4 5\n1 2\n1 3\n2 3\n3 4\n1 4","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Police Chase.cpp","group":"local","local":true}

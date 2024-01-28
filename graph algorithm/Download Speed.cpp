@@ -1,71 +1,53 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int n,m;
-long long int sum;
-map<int,int> go[510];
-map<int,int> bac[510];
-bool visited[510];
-int road[1010];
-int dfs(int a,int b,int deep){
-    int sub=0;
-    //cout<<a<<endl;
-    road[deep]=a;
-    if(a==n){
-        for(int i=deep;i>0;i--){
-            //cout<<"1:"<<road[i-1]<<" "<<road[i]<<" "<<-b<<endl;
-            go[road[i-1]][road[i]]-=b;
-            //cout<<"1:"<<road[i]<<" "<<road[i-1]<<" "<<b<<endl;
-            bac[road[i]][road[i-1]]+=b;
-        }
-        return b;
-    }
-    else{
-        bool door=true;
-        visited[a]=true;
-        for(auto it=go[a].begin();it!=go[a].end();it++){
-            if(visited[it->first])continue;
-            if(it->second<sum || it->second==0 || b-sub==0)continue;
-            door=false;
-            sub+=dfs(it->first,min(it->second,b-sub),deep+1);
-        }
-        visited[a]=false;
-        if(door){
-            for(int i=deep;i>0;i--){
-                //cout<<"2:"<<road[i-1]<<" "<<road[i]<<" "<<-b<<endl;
-                go[road[i-1]][road[i]]-=b;
-                //cout<<"2:"<<road[i]<<" "<<road[i-1]<<" "<<b<<endl;
-                bac[road[i]][road[i-1]]+=b;
-            }
-            return b;
+vector<int> graph[510];
+long long int flow[510][510];
+long long int tre=0;
+bitset<510> visited;
+long long int dfs(int x,long long int small){
+    if(x==n)return small;
+    visited[x]=1;
+    for(int i=0;i<graph[x].size();i++){
+        int next=graph[x][i];
+        if(visited[next])continue;
+        if(flow[x][next]<tre)continue;
+        long long int w=dfs(next,min(small,flow[x][next]));
+        if(w>0){
+            flow[x][next]-=w;
+            flow[next][x]+=w;
+            return w;
         }
     }
-    return sub;
+    return 0;
 }
-int main(){
-    cin.tie(0);
-    ios::sync_with_stdio(false);
+int main() {
+    // ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
     cin>>n>>m;
-    sum=0;
+    memset(flow,0,sizeof(flow));
     for(int i=0;i<m;i++){
-        int a,b,c;
+        int a,b;
+        long long int c;
         cin>>a>>b>>c;
-        go[a][b]=c;
-        bac[b][a]=0;
-        sum+=c;
-    }
-    while(sum!=0){
-        for(auto it=go[1].begin();it!=go[1].end();it++){
-            if(it->second<sum || it->second==0)continue;
-            road[0]=1;
-            visited[1]=true;
-            dfs(it->first,it->second,1);
-            visited[1]=false;
+        tre=max(tre,c);
+        if(flow[a][b]==0 && flow[b][a]==0){
+            graph[a].push_back(b);
+            graph[b].push_back(a);
+            flow[a][b]=c;
+        }else{
+            flow[a][b]+=c;
         }
-        sum/=2;
     }
     long long int answer=0;
-    for(auto it=bac[n].begin();it!=bac[n].end();it++){
-        answer+=it->second;
+    while(tre>0){
+        while(true){
+            visited.reset();
+            long long int f=1e18;
+            f=dfs(1,f);
+            answer+=f;
+            if(f==0)break;
+        }
+        tre/=2;
     }
     cout<<answer;
     return 0;

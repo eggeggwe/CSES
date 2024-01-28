@@ -1,0 +1,1 @@
+{"name":"Local: Distinct Routes","url":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Distinct Routes.cpp","tests":[{"id":1706447753520,"input":"6 7\n1 2\n1 3\n2 6\n3 4\n3 5\n4 6\n5 6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\88697\\Desktop\\CSES\\graph algorithm\\Distinct Routes.cpp","group":"local","local":true}
